@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Coffee House</title>
+    <title>Agendify</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <h1>Welcome to Coffee House</h1>
-    </header>
-    <nav>
+        
+        <h1>AGENDIFY<img id="logo" src="/static/logo1.png" alt="website logo"></h1>
+          
+             <nav class="navbar">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/menu">Menu</a></li>
+            <li ><a href="/">Home</a></li>
+            <li ><a href="/tasks">Tasks</a></li>
+            <li ><a href="/notes">Notes</a></li>
+            <li ><a href="/calander">Calander</a></li>
+            <li ><a href="/schedule">Schedule</a></li>
         </ul>
     </nav>
+        
+        </div>
+    </header>
+
     <main>
-        <h2>Welcome to our coffee shop!</h2>
-        <p>Explore our delicious coffee menu.</p>
+        <div class="container">
+            <h2>Today's tasks</h2>
+            <p>Check out what's on the agenda for today..</p>
+            <input type="text" id="task-input" placeholder="Add a new task">
+            <button id="add-task">Add</button>
+            <ul id="task-list"></ul>
+                
+             <input type="text" id="task-input" placeholder="Task description">
+                <select id="priority-dropdown">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="important">Important</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="not urgent">Not Urgent</option>
+                </select>
+                <button id="add-task">Add Task</button>
+   
+                <script src="{{ url_for('static', filename='script.js') }}"></script>
+            </ul>
+        </div>
+        
+        <div class="container">
+            <h2>Urgent Tasks this Week</h2>
+            <p>To be completed asap</p>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2023 Coffee House</p>
+        <p>&copy; Agendify 2023</p>
     </footer>
 </body>
 </html>

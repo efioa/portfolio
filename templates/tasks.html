@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tasks</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Today's Tasks</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/tasks">Tasks</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>To Do List</h2>
+        <ul>
+            {% for item in task_items %}
+            <li>{{ item.name }} - {{ item.urgency }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2023 Agendify</p>
+    </footer>
+</body>
+</html>

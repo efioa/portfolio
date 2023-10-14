@@ -1,23 +1,19 @@
-from flask import Flask, render_template
+
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
 
-# Mock data for coffee menu
-coffee_menu = [
-    {"name": "Espresso", "price": "$2.50"},
-    {"name": "Latte", "price": "$3.00"},
-    {"name": "Cappuccino", "price": "$3.25"},
-    {"name": "Mocha", "price": "$4.00"},
-    # Add more coffee items here
-]
+@app.route('/')
+def home():
+    return render_template('login.html')
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+@app.route('/login.html', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
 
-@app.route("/menu")
-def menu():
-    return render_template("menu.html", menu_items=coffee_menu)
+@app.route('/index.html')
+def dashboard():
+    return render_template('index.html')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)

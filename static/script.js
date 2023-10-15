@@ -178,7 +178,7 @@ prenexIcons.forEach(icon => {
 
 		// Check if the month is out of range
 		if (month < 0 || month > 11) {
-
+            
 			// Set the date to the first day of the 
 			// month with the new year
 			date = new Date(year, month, new Date().getDate());

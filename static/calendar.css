@@ -6,7 +6,7 @@
 
 body {
 	display: flex;
-	background: #ef62da;
+	background: #efb9b9;
 	min-height: 100vh;
 	padding: 0 10px;
 	align-items: center;
@@ -66,6 +66,7 @@ header .calendar-current-date {
 	flex-wrap: wrap;
 	display: flex;
 	text-align: center;
+
 }
 
 .calendar-body .calendar-dates {
@@ -75,7 +76,7 @@ header .calendar-current-date {
 .calendar-body li {
 	width: calc(100% / 7);
 	font-size: 1.07rem;
-	color: #414141;
+	color: #841717;
 }
 
 .calendar-body .calendar-weekdays li {

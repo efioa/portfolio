@@ -13,11 +13,12 @@ h1 {
 }
 
 #logo {
- width: 10px;
- height: 10px;
+ width: 70px;
+ height: 90px;
  margin-right:10px;
  padding-top: 5px;
  background-image: url(/static/logo1.png);
+ background-repeat:no-repeat;
 
 }
 

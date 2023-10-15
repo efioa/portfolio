@@ -201,3 +201,84 @@ prenexIcons.forEach(icon => {
 		manipulate();
 	});
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const currentDateElement = document.getElementById("current-date");
+    const entryContent = document.querySelector("textarea");
+    const saveEntryButton = document.getElementById("save-entry");
+    const previousEntryButton = document.getElementById("previous-entry");
+    const nextEntryButton = document.getElementById("next-entry");
+
+    // Function to save the journal entry
+    saveEntryButton.addEventListener("click", function() {
+        const currentDate = new Date();
+        currentDateElement.textContent = currentDate.toDateString();
+        // You can save the entry content to a database or storage here.
+    });
+
+    // Function to navigate to the previous entry
+    previousEntryButton.addEventListener("click", function() {
+        // Implement logic to load the previous journal entry here.
+    });
+
+    // Function to navigate to the next entry
+    nextEntryButton.addEventListener("click", function() {
+        // Implement logic to load the next journal entry here.
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const currentDateElement = document.getElementById("current-date");
+    const entryContent = document.querySelector("textarea");
+    const saveEntryButton = document.getElementById("save-entry");
+    const previousEntryButton = document.getElementById("previous-entry");
+    const nextEntryButton = document.getElementById("next-entry");
+
+    // Function to save the journal entry
+    saveEntryButton.addEventListener("click", function() {
+        const currentDate = new Date();
+        const entryDate = currentDate.toDateString();
+        const entryText = entryContent.value;
+
+        // Check if local storage is supported by the browser
+        if (typeof(Storage) !== "undefined") {
+            // Save the entry to local storage
+            localStorage.setItem(entryDate, entryText);
+        } else {
+            alert("Local storage is not supported by your browser.");
+        }
+    });
+
+    // Function to load the current entry
+    function loadCurrentEntry() {
+        const currentDate = new Date();
+        const entryDate = currentDate.toDateString();
+        
+        if (typeof(Storage) !== "undefined") {
+            // Check if an entry exists for the current date
+            if (localStorage.getItem(entryDate)) {
+                entryContent.value = localStorage.getItem(entryDate);
+            } else {
+                entryContent.value = ""; // No entry for today
+            }
+        } else {
+            alert("Local storage is not supported by your browser.");
+        }
+    }
+
+    // Function to navigate to the previous entry
+    previousEntryButton.addEventListener("click", function() {
+        // Implement logic to load the previous journal entry here.
+        // This logic will depend on how you store and organize your entries.
+        // You may use dates or an array to manage entries.
+    });
+
+    // Function to navigate to the next entry
+    nextEntryButton.addEventListener("click", function() {
+        // Implement logic to load the next journal entry here.
+        // Similar to the previous entry, the logic will depend on your data structure.
+    });
+
+    // Load the current entry when the page loads
+    loadCurrentEntry();
+});

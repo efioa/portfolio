@@ -85,87 +85,66 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
 
 
 // calendar.js
-document.addEventListener("DOMContentLoaded", function () {
-    const calendarBody = document.querySelector(".calendar tbody");
-    const today = new Date();
-    const currentMonth = today.getMonth();
-    const currentYear = today.getFullYear();
 
-    function generateCalendar(month, year) {
-        const firstDay = new Date(year, month, 1);
-        const lastDay = new Date(year, month + 1, 0);
-        const daysInMonth = lastDay.getDate();
-        const startingDay = firstDay.getDay();
+let currentMonth = document.querySelector(".current-month");
+let calendarDays = document.querySelector(".calendar-days");
+let today = new Date();
+let date = new Date();
 
-        let date = 1;
 
-        // Clear the previous month's data
-        calendarBody.innerHTML = "";
+currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
+today.setHours(0,0,0,0);
+renderCalendar();
 
-        for (let i = 0; i < 6; i++) {
-            const row = document.createElement("tr");
+function renderCalendar(){
+    const prevLastDay = new Date(date.getFullYear(),date.getMonth(),0).getDate();
+    const totalMonthDay = new Date(date.getFullYear(),date.getMonth()+1,0).getDate();
+    const startWeekDay = new Date(date.getFullYear(),date.getMonth(),0).getDay();
+    
+    calendarDays.innerHTML = "";
 
-            for (let j = 0; j < 7; j++) {
-                if (i === 0 && j < startingDay) {
-                    const cell = document.createElement("td");
-                    row.appendChild(cell);
-                } else if (date > daysInMonth) {
-                    break;
-                } else {
-                    const cell = document.createElement("td");
-                    cell.textContent = date;
-                    row.appendChild(cell);
-                    date++;
-                }
-            }
+    let totalCalendarDay = 6 * 7;
+    for (let i = 0; i < totalCalendarDay; i++) {
+        let day = i-startWeekDay;
 
-            calendarBody.appendChild(row);
+        if(i <= startWeekDay){
+            // adding previous month days
+            calendarDays.innerHTML += `<div class='padding-day'>${prevLastDay-i}</div>`;
+        }else if(i <= startWeekDay+totalMonthDay){
+            // adding this month days
+            date.setDate(day);
+            date.setHours(0,0,0,0);
+            
+            let dayClass = date.getTime()===today.getTime() ? 'current-day' : 'month-day';
+            calendarDays.innerHTML += `<div class='${dayClass}'>${day}</div>`;
+        }else{
+            // adding next month days
+            calendarDays.innerHTML += `<div class='padding-day'>${day-totalMonthDay}</div>`;
         }
-    }
-
-    generateCalendar(currentMonth, currentYear);
-});
-
-
-function generateCalendar(month, year) {
-
-    for (let i = 0; i < 6; i++) {
-        const row = document.createElement("tr");
-
-        for (let j = 0; j < 7; j++) {
-            if (i === 0 && j < startingDay) {
-                const cell = document.createElement("td");
-                row.appendChild(cell);
-            } else if (date > daysInMonth) {
-                break;
-            } else {
-                const cell = document.createElement("td");
-                const dateContainer = document.createElement("div");
-                dateContainer.classList.add("date-container");
-                const dateElement = document.createElement("span");
-                dateElement.classList.add("date");
-                dateElement.textContent = date;
-                const editBox = document.createElement("input");
-                editBox.classList.add("edit-box");
-                editBox.value = date;
-                dateContainer.appendChild(dateElement);
-                dateContainer.appendChild(editBox);
-                cell.appendChild(dateContainer);
-                row.appendChild(cell);
-                date++;
-            }
-        }
-
-        calendarBody.appendChild(row);
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.querySelectorAll(".month-btn").forEach(function (element) {
+	element.addEventListener("click", function () {
+		date = new Date(currentMonth.textContent);
+        date.setMonth(date.getMonth() + (element.classList.contains("prev") ? -1 : 1));
+		currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
+		renderCalendar();
+	});
+});
 
-    const editBoxes = document.querySelectorAll(".edit-box");
-    editBoxes.forEach((editBox) => {
-        editBox.addEventListener("blur", function () {
-            console.log("Saved:", editBox.value);
-        });
-    });
+document.querySelectorAll(".btn").forEach(function (element) {
+	element.addEventListener("click", function () {
+        let btnClass = element.classList;
+        date = new Date(currentMonth.textContent);
+        if(btnClass.contains("today"))
+            date = new Date();
+        else if(btnClass.contains("prev-year"))
+            date = new Date(date.getFullYear()-1, 0, 1);
+        else
+            date = new Date(date.getFullYear()+1, 0, 1);
+        
+		currentMonth.textContent = date.toLocaleDateString("en-US", {month:'long', year:'numeric'});
+		renderCalendar();
+	});
 });

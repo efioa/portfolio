@@ -6,24 +6,24 @@
 }
 
 main {
-    background-color: #d8cece;rgb(103, 23, 29);
+    background-color: #d8cece;
 }
 
 header {
-    background-color: #f19c9c;
+    background-color: #e3afbc;
     color: rgb(248, 245, 245);
     text-align: center;
     padding: 10px;
 }
   h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:rgb(103, 23, 29);
+    color: #980a37;
    text-align:left;
    padding-top: 20px;
   }
 
   h2 {
-    color:rgb(103, 23, 29);
+    color:#980a37;
   }
   /* Style for the entry container */
   .entry {
@@ -51,8 +51,8 @@ header {
   }
   
   button#save-entry {
-    background-color:rgb(103, 23, 29);
-    color: rgb(248, 239, 239);
+    background-color:#e3afbc;
+    color: #980a37;
     border: none;
     padding: 8px 10px;
     margin-top: 10px;
@@ -68,8 +68,8 @@ header {
   
   button#previous-entry,
   button#next-entry {
-    background-color: rgb(103, 23, 29);
-    color: white;
+    background-color:#e3afbc;
+    color: #980a37;
     border: none;
     border-radius:4px;
     padding: 8px 15px;
@@ -78,7 +78,7 @@ header {
   }
   
   footer{
-    color:  rgb(103, 23, 29);
-    background-color: #e89e9e;
+    color: #980a37;
+    background-color: #e3afbc;
     padding: 40px;
   }

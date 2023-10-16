@@ -12,15 +12,6 @@ h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#logo {
- width: 70px;
- height: 90px;
- margin-right:10px;
- padding-top: 5px;
- background-image: url(/static/logo1.png);
- background-repeat:no-repeat;
-
-}
 
 
 nav ul {
@@ -39,8 +30,15 @@ nav li a {
     color: #5d001e; 
     font-weight: bold;
     text-decoration: none;
+    
 }
 
+.navbar {
+    text-align: end;
+    position: sticky;
+}
+
+    
 body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
@@ -112,6 +110,43 @@ input[type="placeholder"] {
     border-radius: 4px;
 }
 
+#task-input {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    appearance: none;
+	border: .2em solid #980a37  ;
+	background: hsl(0 0 0/0);
+	padding: .85em 1.5em;
+	color: #E91E63;
+	border-radius: 2em;
+	transition: 1s;
+    margin-top: 10px;
+}
+#priority-dropdown {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    appearance: none;
+	border: .2em solid #980a37  ;
+	background: hsl(0 0 0/0);
+	padding: .5em 1.5em;
+	color: #898586;
+	border-radius: 2em;
+	transition: 1s;
+    margin-top: 10px;
+}
+#add-task {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    appearance: none;
+	border: .2em solid;
+	border: .2em solid;
+	background-color: #e3afbc;
+	padding: .5em 1.5em;
+	color: #980a37;
+	border-radius: 2em;
+	transition: 1s;
+    margin-top: 10px;
+}
+
+    
 
 /*calendar css*/
 
@@ -159,4 +194,5 @@ tr:nth-child(even) {
 }
 
 
+/*toggle menu*/
 

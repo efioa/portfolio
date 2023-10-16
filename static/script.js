@@ -72,18 +72,6 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
 });
 
 
-// JavaScript for handling login
-document.getElementById('login-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const username = document.querySelector('input[type="email"]').value;
-    const password = document.querySelector('input[type="password"]').value;
-
-
-    // On successful login, redirect to the main page
-    window.location.href = 'index.html';
-});
-
-
 // calendar.js
 
 let date = new Date();

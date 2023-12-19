@@ -7,17 +7,16 @@
 </head>
 <body>
     <header>
-        <h1>Travel Guru</h1>
+        <h1>AGENDIFY</h1>
         <nav class="navbar">
             <ul>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
             {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('diary') }}">Diary Post</a></li>
-                <li><a href="{{ url_for('logout_page') }}">Logout</a></li>
-                <li><a href="{{ url_for('calendar') }}">Calendar</a></li>
-                <li><a href="{{ url_for('currencycon') }}">Currency-Convertor</a></li>
-                <li><a href="{{ url_for('map') }}">World Map</a></li>
-                <li><a href="{{ url_for('weatherapp') }}">weather App</a></li>
+            <li ><a href="{{ url_for('tasklist.html') }}">Home</a></li>
+            <li ><a href="{{ url_for('diary.html') }}">Diary</a></li>
+            <li ><a href="{{ url_for('logout.html') }}">Logout</a></li>
+            <li ><a href="{{ url_for('calendar.html') }}">Calendar</a></li>
+
             {% else %}
                 <li><a href="{{ url_for('login_page') }}">Login</a></li>
                 <li><a href="{{ url_for('register_page') }}">Register</a></li>

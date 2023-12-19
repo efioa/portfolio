@@ -5,12 +5,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('tasklist.html')
 
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def login():
     return render_template('login.html')
+
+
+@app.route('/register.html', methods=['GET, POST'])
+def register():
+    return render_template('register.html')
 
 
 @app.route('/diary.html')

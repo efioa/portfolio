@@ -1,3 +1,4 @@
 {
-    "powershell.buttons.showRunButtons": true
+    "powershell.buttons.showRunButtons": true,
+    "liveServer.settings.port": 5501
 }

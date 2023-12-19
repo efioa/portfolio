@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <title>AGENDIFY</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Guru</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('diary') }}">Diary Post</a></li>
+                <li><a href="{{ url_for('logout_page') }}">Logout</a></li>
+                <li><a href="{{ url_for('calendar') }}">Calendar</a></li>
+                <li><a href="{{ url_for('currencycon') }}">Currency-Convertor</a></li>
+                <li><a href="{{ url_for('map') }}">World Map</a></li>
+                <li><a href="{{ url_for('weatherapp') }}">weather App</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login_page') }}">Login</a></li>
+                <li><a href="{{ url_for('register_page') }}">Register</a></li>
+            {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <h1>{{ title }}</h1>
+      {% block content %}{% endblock %}
+    </main>
+    
+  <footer>
+      <a href="/" title="share"><i class="fab fa-instagram"></i></a>
+      <a href="/" title="share"><i class="fab fa-facebook"></i></a>
+      <a href="/" title="share"><i class="fab fa-twitter"></i></a>
+</footer>
+<script src="/static/script.js"></script>
+</body>
+
+</html>

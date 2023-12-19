@@ -18,19 +18,15 @@ def diary():
     return render_template('diary.html')
 
 
-@app.route('/notes.html')
-def index():
-    return render_template('notes.html')
-
 
 @app.route('/calendar.html')
 def calendar():
     return render_template('calendar.html')
 
 
-@app.route('/dailyaffirmations.html')
-def dailyaffirmations():
-    return render_template('dailyaffirmations.html')
+@app.route('/base.html')
+def base():
+    return render_template('base.html')
 
 
 if __name__ == '__main__':

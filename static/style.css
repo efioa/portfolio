@@ -146,7 +146,12 @@ input[type="placeholder"] {
     margin-top: 10px;
 }
 
-    
+footer{
+    color: #980a37;
+    background-color: #e3afbc;
+    padding: 40px;
+    margin-top: 160px;
+  }
 
 /*calendar css*/
 
